@@ -7,7 +7,7 @@ class productModel{
     }
 
     function getProducts(){
-        $query = $this->db->prepare("SELECT p.nombre as nombre, p.id as id, c.nombre as nombre_categoria FROM producto p INNER JOIN categoria c ON p.id_categoria= c.id;");
+        $query = $this->db->prepare("SELECT p.nombre as nombre, p.precio as precio, p.descripcion as descripcion, p.id as id, c.nombre as nombre_categoria FROM producto p INNER JOIN categoria c ON p.id_categoria= c.id;");
         $query->execute();
         $productos = $query->fetchAll(PDO::FETCH_OBJ); 
         
@@ -15,10 +15,9 @@ class productModel{
     }
 
     function orderProducts($order){
-        $query = $this->db->prepare("SELECT nombre FROM producto  ORDER BY nombre $order");
+        $query = $this->db->prepare("SELECT p.nombre as nombre, p.precio as precio, p.descripcion as descripcion, p.id as id, c.nombre as nombre_categoria FROM producto p INNER JOIN categoria c ON p.id_categoria= c.id  ORDER BY nombre $order");
         $query->execute();
         $productos = $query->fetchAll(PDO::FETCH_OBJ);
-        var_dump($productos);
         return $productos;
     }
 
@@ -32,7 +31,7 @@ class productModel{
 
 
     function getProductById($params){
-        $query = $this->db->prepare("SELECT p.nombre as nombre, p.precio as precio, p.descripcion as descripcion , p.imagen as imagen, p.id as id, c.nombre as nombre_categoria FROM producto p INNER JOIN categoria c ON p.id_categoria= c.id where p.id=?;");
+        $query = $this->db->prepare("SELECT p.nombre as nombre, p.precio as precio, p.descripcion as descripcion , p.id as id, c.nombre as nombre_categoria FROM producto p INNER JOIN categoria c ON p.id_categoria= c.id where p.id=?;");
         $query->execute(array($params));
         $product = $query->fetch(PDO::FETCH_OBJ);
         

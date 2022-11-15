@@ -32,10 +32,10 @@ class ProductController{
                     case 'order':
                     if(!empty($key==="asc")){
                         $order=ucfirst($key); //paso el parametro a mayuscula para poder usarlo en MySQL
+                        $this->view->response("El producto con ");
                         $products = $this->model->orderProducts($order);
-                        $this->view->response("producto agregado con exito");
+                        $this->view->response("El producto con ");
                         $this->view->response($products);
-                        $this->view->response("producto agregado con exito");
                     }
                     else if (!empty($key==='desc')){
                         $order=ucfirst($key);
@@ -45,9 +45,11 @@ class ProductController{
                     else{
                         //sino devuelve todo desordenado
                         if(empty($key)){
-                            $this->view->response("producto agregado con exito");
                         $products = $this->model->getProducts();
                         $this->view->response($products);
+                        }
+                        else{
+                            $this->view->response("Solicitud incorrecta", 400);
                         }
                     }
                         break;
@@ -55,7 +57,6 @@ class ProductController{
                         if(empty($key)){
                         $products = $this->model->getProducts();
                         $this->view->response($products); 
-                        $this->view->response("producto agregado con exito");
                         }
                         break;
                     }
@@ -70,8 +71,6 @@ class ProductController{
             $this->view->response($product);
         else 
             $this->view->response("El producto con id=$id no existe", 404);
-        
-        $this->view->response($product);
     }
     function addProduct(){
         $product = $this->getData();
