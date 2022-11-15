@@ -11,7 +11,6 @@ Actualmente están disponibles para consulta mediante nuestra API los siguientes
 - comentarios
 
 ###  PARAMETROS
-Los parámetros disponibles y opcionales para acceder a consultas de la API son los siguientes: 
 
 - **order** especifica si los resultados se muestran en orden ascendente o descendente. Puede tomar solamente los valores *asc* y *desc*. Por defecto, los resultados se muestran desordenados. 
 
