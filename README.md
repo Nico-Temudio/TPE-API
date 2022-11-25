@@ -100,12 +100,12 @@ La API permite la eliminación de un recurso, para lo cual se debe conocer el id
 Ejemplo de método DELETE que elimina el registro id= 16 del recurso ***productos***.
 
 ```
-http://localhost/WEB2/TPE2-REST/api/products/16
+http://localhost/TPE-API/api/products/16
 ```
 Ejemplo de método DELETE que elimina el registro id= 16 del recurso ***categorias***.
 
 ```
-http://localhost/WEB2/TPE2-REST/api/categorias/3
+http://localhost/TPE-API/api/categorias/3
 ```
 ```
 Nota: En el caso de eliminar una categoria, se eliminaran los productos asignados a dicha categoria.
@@ -113,5 +113,5 @@ Nota: En el caso de eliminar una categoria, se eliminaran los productos asignado
 Ejemplo de método DELETE que elimina el registro id= 5 del recurso ***comentarios***.
 
 ```
-http://localhost/WEB2/TPE2-REST/api/comment/5
+http://localhost/TPE-API/api/comment/5
 ```
